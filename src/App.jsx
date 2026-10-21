@@ -2,11 +2,10 @@ import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/biblioteca/query-client'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import PageNotFound from "./biblioteca/PageNotFound";
+import PageNotFound from "./lib/PageNotFound";
 import { AuthProvider, useAuth } from "@/biblioteca/AuthContext";
 import UserNotRegisteredError from "@/componentes/UserNotRegisteredError";
-import ScrollToTop from "./componentes/ScrollToTop";
-// Add page imports here
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "@/páginas/Home";
 import Admin from "@/páginas/Admin";
 import Login from '@/páginas/Login';
