@@ -1,0 +1,65 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome exibido no card\u00e1pio"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o curta do produto"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "acai",
+        "pastel",
+        "addon_free",
+        "addon_paid"
+      ],
+      "description": "A\u00e7a\u00ed (tamanho), pastel, adicional gr\u00e1tis ou adicional pago"
+    },
+    "price": {
+      "type": "number",
+      "description": "Pre\u00e7o em reais"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Foto do produto (opcional)"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Dispon\u00edvel para pedidos (desative quando esgotar)"
+    },
+    "sort_order": {
+      "type": "number",
+      "default": 0,
+      "description": "Ordem de exibi\u00e7\u00e3o no card\u00e1pio"
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "price"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

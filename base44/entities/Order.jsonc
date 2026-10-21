@@ -1,0 +1,145 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_code": {
+      "type": "string",
+      "description": "N\u00famero do pedido exibido ao cliente (ex: #012)"
+    },
+    "customer_name": {
+      "type": "string"
+    },
+    "customer_phone": {
+      "type": "string"
+    },
+    "order_type": {
+      "type": "string",
+      "enum": [
+        "delivery",
+        "pickup"
+      ],
+      "default": "delivery",
+      "description": "Entrega em domic\u00edlio ou retirada no local"
+    },
+    "address_street": {
+      "type": "string"
+    },
+    "address_number": {
+      "type": "string"
+    },
+    "address_neighborhood": {
+      "type": "string"
+    },
+    "address_complement": {
+      "type": "string"
+    },
+    "address_reference": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "description": "Itens do pedido com adicionais e observa\u00e7\u00f5es",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "line_total": {
+            "type": "number"
+          },
+          "observation": {
+            "type": "string"
+          },
+          "addons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "subtotal": {
+      "type": "number"
+    },
+    "delivery_fee": {
+      "type": "number"
+    },
+    "total": {
+      "type": "number"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "pix",
+        "card",
+        "cash"
+      ],
+      "default": "pix"
+    },
+    "change_for": {
+      "type": "string",
+      "description": "Troco para quanto (pagamento em dinheiro)"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pendente",
+        "em_preparo",
+        "saiu_entrega",
+        "concluido",
+        "cancelado"
+      ],
+      "default": "pendente"
+    }
+  },
+  "required": [
+    "customer_name",
+    "customer_phone",
+    "items",
+    "total",
+    "status"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

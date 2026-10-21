@@ -1,0 +1,86 @@
+{
+  "name": "StoreSettings",
+  "type": "object",
+  "properties": {
+    "store_name": {
+      "type": "string"
+    },
+    "slogan": {
+      "type": "string",
+      "description": "Frase principal do banner"
+    },
+    "tagline": {
+      "type": "string",
+      "description": "Frase de apoio do banner"
+    },
+    "whatsapp": {
+      "type": "string",
+      "description": "WhatsApp que recebe os pedidos"
+    },
+    "is_open": {
+      "type": "boolean",
+      "default": true,
+      "description": "Loja aberta ou fechada para pedidos"
+    },
+    "closed_message": {
+      "type": "string",
+      "description": "Mensagem exibida quando a loja est\u00e1 fechada"
+    },
+    "delivery_fee_mode": {
+      "type": "string",
+      "enum": [
+        "fixed",
+        "neighborhood"
+      ],
+      "default": "fixed",
+      "description": "Taxa de entrega fixa ou por bairro"
+    },
+    "fixed_delivery_fee": {
+      "type": "number",
+      "default": 0
+    },
+    "delivery_fees": {
+      "type": "array",
+      "description": "Taxas por bairro",
+      "items": {
+        "type": "object",
+        "properties": {
+          "neighborhood": {
+            "type": "string"
+          },
+          "fee": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "pix_key": {
+      "type": "string"
+    },
+    "pickup_address": {
+      "type": "string",
+      "description": "Endere\u00e7o para retirada no local"
+    }
+  },
+  "required": [
+    "store_name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
