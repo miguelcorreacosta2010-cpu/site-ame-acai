@@ -1,12 +1,12 @@
-import { Toaster } from "@/components/ui/toaster";
-import { QueryClientProvider } from '@tanstack/react-query';
-import { queryClientInstance } from '@/lib/query-client';
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import PageNotFound from "./lib/PageNotFound";
-import { AuthProvider, useAuth } from "@/lib/AuthContext";
-import UserNotRegisteredError from "@/components/UserNotRegisteredError";
-import ScrollToTop from "./components/ScrollToTop";
-
+import ProductCard from '@/components/client/ProductCard';
+import AcaiBuilderDialog from '@/components/client/AcaiBuilderDialog';
+import PastelDialog from '@/components/client/PastelDialog';
+import CartSheet from '@/components/client/CartSheet';
+import OrderSuccessDialog from '@/components/client/OrderSuccessDialog';
+import StoreFooter from '@/components/client/StoreFooter';
+import { useMenu } from '@/hooks/useMenu';
+import { useCart } from '@/hooks/useCart';
+import { cartTotals, currency } from '@/lib/store';
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import Login from '@/pages/Login';
@@ -27,8 +27,6 @@ export default function Home() {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [acaiSizeId, setAcaiSizeId] = useState(null);
-  import { useMenu } from "@/ganchos/useMenu";
-import { useCart } from "@/ganchos/useCart";
   const [neighborhood, setNeighborhood] = useState('');
   const [placedOrder, setPlacedOrder] = useState(null);
 
