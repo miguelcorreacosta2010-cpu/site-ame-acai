@@ -1,19 +1,17 @@
+import { useState, useMemo } from 'react';
+import { ShoppingBag } from 'lucide-react';
+
 import ProductCard from '@/components/client/ProductCard';
 import AcaiBuilderDialog from '@/components/client/AcaiBuilderDialog';
 import PastelDialog from '@/components/client/PastelDialog';
 import CartSheet from '@/components/client/CartSheet';
 import OrderSuccessDialog from '@/components/client/OrderSuccessDialog';
 import StoreFooter from '@/components/client/StoreFooter';
-import { useMenu } from '@/hooks/useMenu';
-import { useCart } from '@/hooks/useCart';
-import { cartTotals, currency } from '@/lib/store';
-import Home from "@/pages/Home";
-import Admin from "@/pages/Admin";
-import Login from '@/pages/Login';
-import Register from '@/pages/Register';
-import ForgotPassword from '@/pages/ForgotPassword';
-import ResetPassword from '@/pages/ResetPassword';
-import ProtectedRoute from '@/components/ProtectedRoute';
+import StoreNav from '@/components/client/StoreNav';
+import StoreHeader from '@/components/client/StoreHeader';
+import CategoryNav from '@/components/client/CategoryNav';
+import SectionBanner from '@/components/client/SectionBanner';
+
 import { useMenu } from '@/hooks/useMenu';
 import { useCart } from '@/hooks/useCart';
 import { cartTotals, currency } from '@/lib/store';
@@ -27,6 +25,8 @@ export default function Home() {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [acaiSizeId, setAcaiSizeId] = useState(null);
+  const [pastelId, setPastelId] = useState(null);
+  const [orderType, setOrderType] = useState('delivery');
   const [neighborhood, setNeighborhood] = useState('');
   const [placedOrder, setPlacedOrder] = useState(null);
 
