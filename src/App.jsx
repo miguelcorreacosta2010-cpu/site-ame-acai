@@ -1,18 +1,18 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClientInstance } from '@/biblioteca/query-client'
+import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import PageNotFound from "./lib/PageNotFound";
-import { AuthProvider, useAuth } from "@/biblioteca/AuthContext";
-import UserNotRegisteredError from "@/componentes/UserNotRegisteredError";
+import { AuthProvider, useAuth } from "@/lib/AuthContext";
+import UserNotRegisteredError from "@/components/UserNotRegisteredError";
 import ScrollToTop from "./components/ScrollToTop";
-import Home from "@/páginas/Home";
-import Admin from "@/páginas/Admin";
-import Login from '@/páginas/Login';
-import Register from '@/páginas/Register';
-import ForgotPassword from '@/páginas/ForgotPassword';
-import ResetPassword from '@/páginas/ResetPassword';
-import ProtectedRoute from '@/componentes/ProtectedRoute';
+import Home from "@/pages/Home";
+import Admin from "@/pages/Admin";
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
+import ForgotPassword from '@/pages/ForgotPassword';
+import ResetPassword from '@/pages/ResetPassword';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
