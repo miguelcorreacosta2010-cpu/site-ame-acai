@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from "./componentes/ScrollToTop";
 // Add page imports here
 import Home from '@/pages/Home';
 import Admin from '@/pages/Admin';
