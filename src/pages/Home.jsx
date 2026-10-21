@@ -25,8 +25,8 @@ export default function Home() {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [acaiSizeId, setAcaiSizeId] = useState(null);
-  const [pastelId, setPastelId] = useState(null);
-  const [orderType, setOrderType] = useState('delivery');
+  import { useMenu } from "@/ganchos/useMenu";
+import { useCart } from "@/ganchos/useCart";
   const [neighborhood, setNeighborhood] = useState('');
   const [placedOrder, setPlacedOrder] = useState(null);
 
